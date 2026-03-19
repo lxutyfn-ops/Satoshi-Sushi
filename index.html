@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SATOSHI SUSHI — Premium Omakase</title>
+  <title>SATORI SUSHI — Premium Omakase</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -206,6 +206,99 @@
       border: 1px solid rgba(201, 169, 110, 0.08);
       border-radius: 50%;
     }
+
+    /* Reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* Menu card */
+    .menu-card {
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .menu-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(201, 169, 110, 0.1);
+    }
+
+    /* Image zoom on hover */
+    .img-zoom {
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .group:hover .img-zoom {
+      transform: scale(1.08);
+    }
+
+    /* Category filter */
+    .cat-btn {
+      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .cat-btn.active {
+      color: #C9A96E;
+      border-color: rgba(201, 169, 110, 0.5);
+      background: rgba(201, 169, 110, 0.06);
+    }
+
+    /* Combo card overlay gradient */
+    .combo-overlay {
+      background: linear-gradient(to top, rgba(6,6,6,0.95) 0%, rgba(6,6,6,0.6) 40%, transparent 100%);
+    }
+
+    /* Price tag */
+    .price-tag {
+      background: linear-gradient(135deg, rgba(201, 169, 110, 0.15) 0%, rgba(201, 169, 110, 0.05) 100%);
+      border: 1px solid rgba(201, 169, 110, 0.2);
+    }
+
+    /* Section number */
+    .section-num {
+      -webkit-text-stroke: 1px rgba(201, 169, 110, 0.1);
+      color: transparent;
+    }
+
+    /* Grid line decorations */
+    .grid-line-v {
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.03), transparent);
+    }
+    .grid-line-h {
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.03), transparent);
+    }
+
+    /* Menu item appear animation */
+    @keyframes menuItemIn {
+      from { opacity: 0; transform: translateY(20px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .menu-item-enter {
+      animation: menuItemIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      opacity: 0;
+    }
+
+    /* Tooltip */
+    .tooltip-arrow {
+      clip-path: polygon(50% 100%, 0 0, 100% 0);
+    }
+
+    /* Count badge pulse */
+    @keyframes badgePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+    .badge-pulse {
+      animation: badgePulse 0.3s ease;
+    }
   </style>
 </head>
 <body class="antialiased">
@@ -226,7 +319,7 @@
             </svg>
           </div>
           <div class="flex flex-col">
-            <span class="text-gold text-lg md:text-xl font-display font-semibold tracking-[0.15em] leading-none">SATOSHI</span>
+            <span class="text-gold text-lg md:text-xl font-display font-semibold tracking-[0.15em] leading-none">SATORI</span>
             <span class="text-white/40 text-[9px] tracking-[0.4em] uppercase font-light mt-0.5">SUSHI & OMAKASE</span>
           </div>
         </a>
