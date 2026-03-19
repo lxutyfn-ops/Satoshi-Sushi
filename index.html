@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SATOSHI SUSHI — Sushi Premium</title>
-  <meta name="description" content="Satoshi Sushi — Sushi premium, fresco y artesanal. Pedí online y recibí en tu puerta.">
+  <title>SATOSHI SUSHI — Premium Omakase</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -14,13 +13,14 @@
             gold: '#C9A96E',
             'gold-light': '#E8D5A8',
             'gold-dark': '#A8854A',
-            dark: '#0A0A0A',
-            'dark-card': '#141414',
-            'dark-border': '#1F1F1F',
+            dark: '#060606',
+            'dark-card': '#0E0E0E',
+            'dark-border': '#1A1A1A',
           },
           fontFamily: {
             sans: ['Inter', 'system-ui', 'sans-serif'],
             display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            japanese: ['"Noto Serif JP"', 'serif'],
           },
         }
       }
@@ -28,40 +28,63 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@200;300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { background: #0A0A0A; color: #fff; font-family: 'Inter', sans-serif; }
+    body { background: #060606; color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
 
-    /* Custom scrollbar */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #0A0A0A; }
-    ::-webkit-scrollbar-thumb { background: #C9A96E; border-radius: 3px; }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #060606; }
+    ::-webkit-scrollbar-thumb { background: #C9A96E; border-radius: 2px; }
 
     /* Animations */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
+      from { opacity: 0; transform: translateY(40px); }
       to { opacity: 1; transform: translateY(0); }
     }
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateX(100%); }
-      to { opacity: 1; transform: translateX(0); }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(1.1); }
+      to { opacity: 1; transform: scale(1); }
     }
-    @keyframes slideOut {
-      from { opacity: 1; transform: translateX(0); }
-      to { opacity: 0; transform: translateX(100%); }
+    @keyframes slideRight {
+      from { width: 0; }
+      to { width: 60px; }
     }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(201, 169, 110, 0.15); }
+      50% { box-shadow: 0 0 40px rgba(201, 169, 110, 0.3); }
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes dash {
+      to { stroke-dashoffset: 0; }
+    }
+    @keyframes rotate-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
     .animate-fade-up {
-      animation: fadeUp 0.8s ease-out forwards;
+      animation: fadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
       opacity: 0;
     }
     .animate-fade-in {
-      animation: fadeIn 0.6s ease-out forwards;
+      animation: fadeIn 1.2s ease-out forwards;
+      opacity: 0;
+    }
+    .animate-scale-in {
+      animation: scaleIn 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
       opacity: 0;
     }
     .delay-100 { animation-delay: 0.1s; }
@@ -69,21 +92,15 @@
     .delay-300 { animation-delay: 0.3s; }
     .delay-400 { animation-delay: 0.4s; }
     .delay-500 { animation-delay: 0.5s; }
-
-    /* Intersection Observer animations */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .delay-600 { animation-delay: 0.6s; }
+    .delay-700 { animation-delay: 0.7s; }
+    .delay-800 { animation-delay: 0.8s; }
+    .delay-1000 { animation-delay: 1s; }
+    .delay-1200 { animation-delay: 1.2s; }
 
     /* Gold gradient text */
     .text-gradient {
-      background: linear-gradient(135deg, #E8D5A8 0%, #C9A96E 50%, #A8854A 100%);
+      background: linear-gradient(135deg, #E8D5A8 0%, #C9A96E 40%, #A8854A 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -91,114 +108,151 @@
 
     /* Gold line decoration */
     .gold-line {
-      width: 60px;
       height: 1px;
-      background: linear-gradient(90deg, transparent, #C9A96E, transparent);
-    }
-
-    /* Cart slide animation */
-    .cart-panel { animation: slideIn 0.3s ease-out forwards; }
-    .cart-panel.closing { animation: slideOut 0.3s ease-in forwards; }
-
-    /* Hover card effect */
-    .menu-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .menu-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(201, 169, 110, 0.08);
+      background: linear-gradient(90deg, #C9A96E, transparent);
+      animation: slideRight 1s ease-out forwards;
+      width: 0;
     }
 
     /* Button glow */
     .btn-gold {
       background: linear-gradient(135deg, #C9A96E 0%, #A8854A 100%);
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .btn-gold:hover {
-      box-shadow: 0 0 30px rgba(201, 169, 110, 0.3);
-      transform: translateY(-1px);
+      box-shadow: 0 0 40px rgba(201, 169, 110, 0.35), 0 8px 32px rgba(201, 169, 110, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* Outline button */
+    .btn-outline {
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .btn-outline:hover {
+      border-color: rgba(201, 169, 110, 0.6);
+      color: #C9A96E;
+      box-shadow: 0 0 30px rgba(201, 169, 110, 0.08);
     }
 
     /* Mobile nav */
     .mobile-nav {
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
     }
 
-    /* Image placeholder shimmer */
-    .img-placeholder {
-      background: linear-gradient(110deg, #1a1a1a 8%, #222 18%, #1a1a1a 33%);
-      background-size: 200% 100%;
-      animation: shimmer 1.5s linear infinite;
-    }
-    @keyframes shimmer {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
+    /* Parallax subtle */
+    .parallax-slow { will-change: transform; }
+
+    /* Grain overlay */
+    .grain::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
     }
 
-    /* Category filter active */
-    .cat-btn.active {
-      color: #C9A96E;
-      border-color: #C9A96E;
+    /* Marquee */
+    .marquee-track {
+      animation: marquee 30s linear infinite;
     }
 
-    /* Sticky bottom bar */
-    .sticky-bottom {
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+    /* Floating element */
+    .float-anim {
+      animation: float 6s ease-in-out infinite;
     }
 
-    /* Toast notification */
-    .toast {
-      animation: fadeUp 0.4s ease-out forwards, fadeIn 0.4s ease-out forwards;
+    /* Rotating circle */
+    .rotate-slow {
+      animation: rotate-slow 20s linear infinite;
     }
-    .toast.hiding {
-      animation: fadeOut 0.3s ease-in forwards;
+
+    /* Chopstick hover */
+    .chopstick-icon {
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    @keyframes fadeOut {
-      to { opacity: 0; transform: translateY(-10px); }
+    .group:hover .chopstick-icon {
+      transform: rotate(15deg);
+    }
+
+    /* Nav link underline effect */
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #C9A96E;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Stat divider */
+    .stat-divider {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, transparent, rgba(201, 169, 110, 0.3), transparent);
+    }
+
+    /* Decorative circle */
+    .deco-circle {
+      border: 1px solid rgba(201, 169, 110, 0.08);
+      border-radius: 50%;
     }
   </style>
 </head>
 <body class="antialiased">
 
   <!-- ========== HEADER ========== -->
-  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 md:h-20">
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-700">
+    <div class="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
+      <div class="flex items-center justify-between h-20 md:h-24">
+
         <!-- Logo -->
-        <a href="#" class="flex items-center gap-2 group">
-          <span class="text-gold text-xl md:text-2xl font-display font-semibold tracking-wider">SATOSHI</span>
-          <span class="text-white/60 text-xs tracking-[0.3em] uppercase font-light">SUSHI</span>
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="relative">
+            <svg class="w-8 h-8 text-gold chopstick-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+              <circle cx="16" cy="16" r="14" stroke-opacity="0.3"/>
+              <path d="M12 8 L12 24" stroke-linecap="round"/>
+              <path d="M20 8 L20 24" stroke-linecap="round"/>
+              <path d="M10 16 L22 16" stroke-opacity="0.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-gold text-lg md:text-xl font-display font-semibold tracking-[0.15em] leading-none">SATOSHI</span>
+            <span class="text-white/40 text-[9px] tracking-[0.4em] uppercase font-light mt-0.5">SUSHI & OMAKASE</span>
+          </div>
         </a>
 
         <!-- Desktop Nav -->
-        <nav class="hidden md:flex items-center gap-8">
-          <a href="#menu" class="text-sm text-white/60 hover:text-gold transition-colors duration-300 tracking-wide">Menú</a>
-          <a href="#como-funciona" class="text-sm text-white/60 hover:text-gold transition-colors duration-300 tracking-wide">Cómo funciona</a>
-          <a href="#testimonios" class="text-sm text-white/60 hover:text-gold transition-colors duration-300 tracking-wide">Opiniones</a>
-          <a href="#contacto" class="text-sm text-white/60 hover:text-gold transition-colors duration-300 tracking-wide">Contacto</a>
+        <nav class="hidden lg:flex items-center gap-10">
+          <a href="#" class="nav-link text-[13px] text-white/50 hover:text-gold transition-colors duration-300 tracking-widest uppercase font-light">Menu</a>
+          <a href="#" class="nav-link text-[13px] text-white/50 hover:text-gold transition-colors duration-300 tracking-widest uppercase font-light">Omakase</a>
+          <a href="#" class="nav-link text-[13px] text-white/50 hover:text-gold transition-colors duration-300 tracking-widest uppercase font-light">About</a>
+          <a href="#" class="nav-link text-[13px] text-white/50 hover:text-gold transition-colors duration-300 tracking-widest uppercase font-light">Reserve</a>
         </nav>
 
         <!-- Actions -->
-        <div class="flex items-center gap-3">
-          <!-- Cart Button -->
-          <button onclick="toggleCart()" class="relative p-2 text-white/70 hover:text-gold transition-colors duration-300" aria-label="Carrito">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+        <div class="flex items-center gap-4">
+          <!-- Reservation CTA -->
+          <a href="#" class="hidden md:inline-flex items-center gap-2 btn-gold text-dark text-xs font-semibold px-7 py-3 rounded-full tracking-wider uppercase">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>
             </svg>
-            <span id="cart-count" class="hidden absolute -top-1 -right-1 w-5 h-5 bg-gold text-dark text-xs font-bold rounded-full flex items-center justify-center">0</span>
-          </button>
-
-          <!-- CTA Desktop -->
-          <a href="#menu" class="hidden md:inline-flex btn-gold text-dark text-sm font-semibold px-6 py-2.5 rounded-full">
-            Pedir ahora
+            Reserve
           </a>
 
           <!-- Mobile Menu Toggle -->
-          <button onclick="toggleMobileNav()" class="md:hidden p-2 text-white/70" aria-label="Menú">
+          <button onclick="toggleMobileNav()" class="lg:hidden p-2 text-white/60 hover:text-gold transition-colors" aria-label="Menu">
             <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h8M4 18h12"/>
             </svg>
           </button>
         </div>
@@ -206,729 +260,218 @@
     </div>
 
     <!-- Mobile Nav Overlay -->
-    <div id="mobile-nav" class="hidden mobile-nav fixed inset-0 top-16 bg-dark/95 md:hidden z-40">
-      <nav class="flex flex-col items-center justify-center gap-8 h-full">
-        <a href="#menu" onclick="toggleMobileNav()" class="text-2xl font-display text-white/80 hover:text-gold transition-colors">Menú</a>
-        <a href="#como-funciona" onclick="toggleMobileNav()" class="text-2xl font-display text-white/80 hover:text-gold transition-colors">Cómo funciona</a>
-        <a href="#testimonios" onclick="toggleMobileNav()" class="text-2xl font-display text-white/80 hover:text-gold transition-colors">Opiniones</a>
-        <a href="#contacto" onclick="toggleMobileNav()" class="text-2xl font-display text-white/80 hover:text-gold transition-colors">Contacto</a>
-        <a href="#menu" onclick="toggleMobileNav()" class="btn-gold text-dark font-semibold px-8 py-3 rounded-full mt-4">Pedir ahora</a>
+    <div id="mobile-nav" class="hidden mobile-nav fixed inset-0 top-20 bg-dark/98 lg:hidden z-40">
+      <nav class="flex flex-col items-center justify-center gap-10 h-full">
+        <a href="#" onclick="toggleMobileNav()" class="text-3xl font-display text-white/70 hover:text-gold transition-colors tracking-wider">Menu</a>
+        <a href="#" onclick="toggleMobileNav()" class="text-3xl font-display text-white/70 hover:text-gold transition-colors tracking-wider">Omakase</a>
+        <a href="#" onclick="toggleMobileNav()" class="text-3xl font-display text-white/70 hover:text-gold transition-colors tracking-wider">About</a>
+        <a href="#" onclick="toggleMobileNav()" class="text-3xl font-display text-white/70 hover:text-gold transition-colors tracking-wider">Reserve</a>
+        <div class="gold-line mx-auto mt-2 mb-2"></div>
+        <a href="#" onclick="toggleMobileNav()" class="btn-gold text-dark font-semibold px-10 py-4 rounded-full tracking-wider uppercase text-sm">Book a Table</a>
       </nav>
     </div>
   </header>
 
   <!-- ========== HERO ========== -->
-  <section class="relative min-h-screen flex items-center overflow-hidden">
-    <!-- Background -->
-    <div class="absolute inset-0">
-      <div class="absolute inset-0 bg-gradient-to-b from-dark via-dark/80 to-dark z-10"></div>
+  <section class="relative min-h-screen flex items-center overflow-hidden grain">
+
+    <!-- Background Image with Parallax -->
+    <div class="absolute inset-0 animate-scale-in">
       <img
         src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1920&q=80"
-        alt="Sushi premium"
-        class="w-full h-full object-cover opacity-50"
+        alt="Premium sushi platter with fresh salmon nigiri and maki rolls"
+        class="w-full h-full object-cover"
         loading="eager"
       >
     </div>
 
-    <!-- Content -->
-    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-0">
-      <div class="max-w-2xl">
+    <!-- Multi-layer Gradient Overlays -->
+    <div class="absolute inset-0 bg-gradient-to-r from-dark via-dark/90 to-dark/40 z-[2]"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-dark/60 z-[2]"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-dark/50 via-transparent to-dark z-[2]"></div>
+
+    <!-- Decorative Elements -->
+    <div class="absolute top-1/4 right-[15%] w-[500px] h-[500px] deco-circle z-[3] animate-fade-in delay-1000 hidden lg:block"></div>
+    <div class="absolute top-[30%] right-[17%] w-[420px] h-[420px] deco-circle z-[3] animate-fade-in delay-1200 hidden lg:block"></div>
+
+    <!-- Japanese Character Watermark -->
+    <div class="absolute right-[8%] top-1/2 -translate-y-1/2 z-[3] hidden xl:block animate-fade-in delay-1000">
+      <span class="font-japanese text-[200px] text-white/[0.02] leading-none select-none" aria-hidden="true">鮨</span>
+    </div>
+
+    <!-- Rotating Badge -->
+    <div class="absolute right-[10%] top-[18%] z-[4] hidden lg:block animate-fade-in delay-800">
+      <div class="relative w-28 h-28">
+        <svg class="w-full h-full rotate-slow" viewBox="0 0 100 100">
+          <defs>
+            <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"/>
+          </defs>
+          <text fill="rgba(201,169,110,0.4)" font-size="8.5" font-family="Inter" letter-spacing="5" font-weight="300">
+            <textPath href="#circlePath">PREMIUM SUSHI * OMAKASE * EST. 2020 * </textPath>
+          </text>
+        </svg>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <span class="text-gold/60 font-display text-lg font-semibold">S</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-32 md:py-0 w-full">
+      <div class="max-w-3xl">
+
+        <!-- Eyebrow -->
         <div class="animate-fade-up">
-          <div class="gold-line mb-8"></div>
-          <p class="text-gold/80 text-sm tracking-[0.3em] uppercase mb-4 font-light">Sushi artesanal premium</p>
+          <div class="flex items-center gap-4 mb-8">
+            <div class="gold-line"></div>
+            <p class="text-gold/70 text-[11px] sm:text-xs tracking-[0.4em] uppercase font-light">Tokyo-Inspired Artisan Sushi</p>
+          </div>
         </div>
 
-        <h1 class="animate-fade-up delay-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-light leading-[0.95] mb-6">
-          El arte del<br>
-          <span class="text-gradient font-medium italic">sushi</span><br>
-          en tus manos
+        <!-- Main Headline -->
+        <h1 class="animate-fade-up delay-200 mb-8">
+          <span class="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[108px] font-display font-light leading-[0.9] tracking-tight">
+            The art of
+          </span>
+          <span class="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[108px] font-display leading-[0.9] tracking-tight mt-1">
+            <em class="text-gradient font-medium">sushi,</em>
+          </span>
+          <span class="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[108px] font-display font-light leading-[0.9] tracking-tight mt-1">
+            perfected.
+          </span>
         </h1>
 
-        <p class="animate-fade-up delay-200 text-white/50 text-base md:text-lg font-light max-w-md mb-10 leading-relaxed">
-          Ingredientes frescos, técnica japonesa y pasión en cada pieza. Pedí online y recibí en tu puerta.
+        <!-- Subtext -->
+        <p class="animate-fade-up delay-400 text-white/40 text-base md:text-lg font-light max-w-lg mb-12 leading-[1.8]">
+          Every piece tells a story of precision, passion, and the
+          finest ingredients flown in from Tsukiji Market.
         </p>
 
-        <div class="animate-fade-up delay-300 flex flex-col sm:flex-row gap-4">
-          <a href="#menu" class="btn-gold text-dark text-center font-semibold px-10 py-4 rounded-full text-base">
-            Ver menú completo
+        <!-- CTA Buttons -->
+        <div class="animate-fade-up delay-500 flex flex-col sm:flex-row gap-4 mb-20">
+          <a href="#" class="group btn-gold text-dark text-center font-semibold px-10 py-4.5 rounded-full text-sm tracking-wider uppercase inline-flex items-center justify-center gap-3">
+            Explore the Menu
+            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+            </svg>
           </a>
-          <a href="https://wa.me/5491100000000" target="_blank" class="border border-white/20 text-white text-center font-medium px-10 py-4 rounded-full text-base hover:border-gold/50 hover:text-gold transition-all duration-300">
-            Escribinos por WhatsApp
+          <a href="#" class="btn-outline border border-white/15 text-white/70 text-center font-medium px-10 py-4.5 rounded-full text-sm tracking-wider uppercase inline-flex items-center justify-center gap-3 hover:text-gold">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z"/>
+            </svg>
+            Watch Our Story
           </a>
         </div>
 
-        <div class="animate-fade-up delay-500 mt-16 flex items-center gap-8">
-          <div>
-            <p class="text-2xl font-display text-gradient font-semibold">100%</p>
-            <p class="text-white/40 text-xs tracking-wide">Ingredientes frescos</p>
+        <!-- Stats Row -->
+        <div class="animate-fade-up delay-700 flex items-center gap-6 sm:gap-10">
+          <div class="group cursor-default">
+            <p class="text-3xl sm:text-4xl font-display text-gradient font-semibold leading-none">15+</p>
+            <p class="text-white/30 text-[10px] sm:text-xs tracking-wider mt-1.5 uppercase font-light">Years of Craft</p>
           </div>
-          <div class="w-px h-8 bg-white/10"></div>
-          <div>
-            <p class="text-2xl font-display text-gradient font-semibold">30 min</p>
-            <p class="text-white/40 text-xs tracking-wide">Entrega estimada</p>
+          <div class="stat-divider"></div>
+          <div class="group cursor-default">
+            <p class="text-3xl sm:text-4xl font-display text-gradient font-semibold leading-none">4.9</p>
+            <p class="text-white/30 text-[10px] sm:text-xs tracking-wider mt-1.5 uppercase font-light">Guest Rating</p>
           </div>
-          <div class="w-px h-8 bg-white/10"></div>
-          <div>
-            <p class="text-2xl font-display text-gradient font-semibold">4.9★</p>
-            <p class="text-white/40 text-xs tracking-wide">Calificación</p>
+          <div class="stat-divider"></div>
+          <div class="group cursor-default">
+            <p class="text-3xl sm:text-4xl font-display text-gradient font-semibold leading-none">Michelin</p>
+            <p class="text-white/30 text-[10px] sm:text-xs tracking-wider mt-1.5 uppercase font-light">Recommended</p>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-fade-in delay-500">
-      <div class="w-px h-16 bg-gradient-to-b from-transparent to-gold/50 mx-auto mb-2"></div>
-      <p class="text-white/30 text-[10px] tracking-[0.3em] uppercase">Scroll</p>
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-fade-in delay-1200 flex flex-col items-center">
+      <p class="text-white/20 text-[9px] tracking-[0.4em] uppercase mb-3 font-light">Scroll</p>
+      <div class="w-px h-12 bg-gradient-to-b from-gold/40 to-transparent"></div>
+    </div>
+
+    <!-- Side Label -->
+    <div class="absolute left-5 sm:left-8 lg:left-12 bottom-10 z-10 hidden md:flex items-center gap-3 animate-fade-in delay-1000">
+      <div class="flex gap-3">
+        <a href="#" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-white/30 hover:text-gold hover:border-gold/40 transition-all duration-300">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="#" class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-white/30 hover:text-gold hover:border-gold/40 transition-all duration-300">
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right side floating badge -->
+    <div class="absolute right-5 sm:right-8 lg:right-12 bottom-10 z-10 hidden md:block animate-fade-in delay-1000">
+      <p class="text-white/15 text-[10px] tracking-[0.3em] uppercase font-light text-right">Open Daily<br><span class="text-gold/40">6PM — 11PM</span></p>
     </div>
   </section>
 
-  <!-- ========== TAGLINE BANNER ========== -->
-  <section class="py-16 md:py-24 border-t border-b border-dark-border">
-    <div class="max-w-4xl mx-auto px-4 text-center reveal">
-      <p class="font-display text-xl md:text-2xl lg:text-3xl text-white/40 font-light italic leading-relaxed">
-        "Momento de comprensión y despertar<br class="hidden sm:block"> a la verdadera naturaleza de la realidad."
-      </p>
-      <div class="gold-line mx-auto mt-8"></div>
-    </div>
-  </section>
-
-  <!-- ========== FEATURED COMBOS ========== -->
-  <section class="py-20 md:py-32">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 reveal">
-        <p class="text-gold/70 text-sm tracking-[0.3em] uppercase mb-4 font-light">Lo más pedido</p>
-        <h2 class="font-display text-4xl md:text-5xl font-light">Combos <span class="text-gradient italic">destacados</span></h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-
-        <!-- Combo 1 -->
-        <div class="menu-card bg-dark-card rounded-2xl overflow-hidden border border-dark-border group reveal">
-          <div class="relative overflow-hidden aspect-[4/3]">
-            <img
-              src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=600&q=80"
-              alt="Combo Satoshi"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              loading="lazy"
-            >
-            <div class="absolute top-4 left-4 bg-gold/90 text-dark text-xs font-bold px-3 py-1 rounded-full tracking-wide">
-              MÁS PEDIDO
-            </div>
-          </div>
-          <div class="p-6">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="font-display text-xl font-medium">Combo Satoshi</h3>
-              <span class="text-gold font-semibold text-lg">$8.900</span>
-            </div>
-            <p class="text-white/40 text-sm mb-5 leading-relaxed">30 piezas mixtas: 10 salmón, 10 langostino, 5 philadelphia, 5 veggie roll.</p>
-            <button onclick="addToCart('combo-satoshi', 'Combo Satoshi', 8900)" class="w-full btn-gold text-dark font-semibold py-3 rounded-full text-sm">
-              Agregar al carrito
-            </button>
-          </div>
-        </div>
-
-        <!-- Combo 2 -->
-        <div class="menu-card bg-dark-card rounded-2xl overflow-hidden border border-dark-border group reveal delay-100">
-          <div class="relative overflow-hidden aspect-[4/3]">
-            <img
-              src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=600&q=80"
-              alt="Combo Sakura"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              loading="lazy"
-            >
-          </div>
-          <div class="p-6">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="font-display text-xl font-medium">Combo Sakura</h3>
-              <span class="text-gold font-semibold text-lg">$6.500</span>
-            </div>
-            <p class="text-white/40 text-sm mb-5 leading-relaxed">20 piezas: 10 salmón roll, 5 california, 5 ebi tempura. Ideal para dos.</p>
-            <button onclick="addToCart('combo-sakura', 'Combo Sakura', 6500)" class="w-full btn-gold text-dark font-semibold py-3 rounded-full text-sm">
-              Agregar al carrito
-            </button>
-          </div>
-        </div>
-
-        <!-- Combo 3 -->
-        <div class="menu-card bg-dark-card rounded-2xl overflow-hidden border border-dark-border group reveal delay-200">
-          <div class="relative overflow-hidden aspect-[4/3]">
-            <img
-              src="https://images.unsplash.com/photo-1553621042-f6e147245754?w=600&q=80"
-              alt="Combo Zen"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              loading="lazy"
-            >
-            <div class="absolute top-4 left-4 bg-white/10 backdrop-blur text-white text-xs font-bold px-3 py-1 rounded-full tracking-wide">
-              NUEVO
-            </div>
-          </div>
-          <div class="p-6">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="font-display text-xl font-medium">Combo Zen</h3>
-              <span class="text-gold font-semibold text-lg">$12.500</span>
-            </div>
-            <p class="text-white/40 text-sm mb-5 leading-relaxed">50 piezas premium: variedad completa con sashimi, nigiri y rolls especiales.</p>
-            <button onclick="addToCart('combo-zen', 'Combo Zen', 12500)" class="w-full btn-gold text-dark font-semibold py-3 rounded-full text-sm">
-              Agregar al carrito
-            </button>
-          </div>
-        </div>
-
+  <!-- ========== MARQUEE DIVIDER ========== -->
+  <div class="relative py-6 border-t border-b border-white/[0.04] overflow-hidden bg-dark-card/50">
+    <div class="flex whitespace-nowrap">
+      <div class="marquee-track flex items-center gap-8">
+        <span class="text-white/[0.06] text-sm tracking-[0.3em] uppercase font-light">Omakase</span>
+        <span class="text-gold/20 text-lg">&#9670;</span>
+        <span class="text-white/[0.06] text-sm tracking-[0.3em] uppercase font-light">Nigiri</span>
+        <span class="text-gold/20 text-lg">&#9670;</span>
+        <span class="text-white/[0.06] text-sm tracking-[0.3em] uppercase font-light">Sashimi</span>
+        <span class="text-gold/20 text-lg">&#9670;</span>
+        <span class="text-white/[0.06] text-sm tracking-[0.3em] uppercase font-light">Maki</span>
+        <span class="text-gold/20 text-lg">&#9670;</span>
+        <span class="text-white/[0.06] text-sm tracking-[0.3em] uppercase font-light">Temaki</span>
+        <span class="text-gold/20 text-lg">&#9670;</span>
+        <span class="text-white/[0.06] text-sm tracking-[0.3em] uppercase font-light">Wagyu</span>
+        <span class="text-gold/20 text-lg">&#9670;</span>
+        <span class="text-white/[0.06] text-sm tracking-[0.3em] uppercase font-light">Uni</span>
+        <span class="text-gold/20 text-lg">&#9670;</span>
+        <span class="text-white/[0.06] text-sm tracking-[0.3em] uppercase font-light">Sake</span>
+        <span class="text-gold/20 text-lg mr-8">&#9670;</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="text-white/[0.06] text-sm tracking-[0.3em] uppercase font-light">Omakase</span>
+        <span class="text-gold/20 text-lg">&#9670;</span>
+        <span class="text-white/[0.06] text-sm tracking-[0.3em] uppercase font-light">Nigiri</span>
+        <span class="text-gold/20 text-lg">&#9670;</span>
+        <span class="text-white/[0.06] text-sm tracking-[0.3em] uppercase font-light">Sashimi</span>
+        <span class="text-gold/20 text-lg">&#9670;</span>
+        <span class="text-white/[0.06] text-sm tracking-[0.3em] uppercase font-light">Maki</span>
+        <span class="text-gold/20 text-lg">&#9670;</span>
+        <span class="text-white/[0.06] text-sm tracking-[0.3em] uppercase font-light">Temaki</span>
+        <span class="text-gold/20 text-lg">&#9670;</span>
+        <span class="text-white/[0.06] text-sm tracking-[0.3em] uppercase font-light">Wagyu</span>
+        <span class="text-gold/20 text-lg">&#9670;</span>
+        <span class="text-white/[0.06] text-sm tracking-[0.3em] uppercase font-light">Uni</span>
+        <span class="text-gold/20 text-lg">&#9670;</span>
+        <span class="text-white/[0.06] text-sm tracking-[0.3em] uppercase font-light">Sake</span>
+        <span class="text-gold/20 text-lg">&#9670;</span>
       </div>
     </div>
-  </section>
-
-  <!-- ========== FULL MENU ========== -->
-  <section id="menu" class="py-20 md:py-32 bg-gradient-to-b from-dark via-[#0d0d0d] to-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12 reveal">
-        <p class="text-gold/70 text-sm tracking-[0.3em] uppercase mb-4 font-light">Nuestra carta</p>
-        <h2 class="font-display text-4xl md:text-5xl font-light">Menú <span class="text-gradient italic">completo</span></h2>
-      </div>
-
-      <!-- Category Filters -->
-      <div class="flex flex-wrap justify-center gap-3 mb-12 reveal">
-        <button onclick="filterMenu('all')" class="cat-btn active border border-dark-border px-5 py-2 rounded-full text-sm transition-all duration-300 hover:border-gold/50 hover:text-gold">Todos</button>
-        <button onclick="filterMenu('combos')" class="cat-btn border border-dark-border px-5 py-2 rounded-full text-sm text-white/50 transition-all duration-300 hover:border-gold/50 hover:text-gold">Combos</button>
-        <button onclick="filterMenu('piezas')" class="cat-btn border border-dark-border px-5 py-2 rounded-full text-sm text-white/50 transition-all duration-300 hover:border-gold/50 hover:text-gold">Piezas</button>
-        <button onclick="filterMenu('entradas')" class="cat-btn border border-dark-border px-5 py-2 rounded-full text-sm text-white/50 transition-all duration-300 hover:border-gold/50 hover:text-gold">Entradas</button>
-        <button onclick="filterMenu('extras')" class="cat-btn border border-dark-border px-5 py-2 rounded-full text-sm text-white/50 transition-all duration-300 hover:border-gold/50 hover:text-gold">Extras</button>
-        <button onclick="filterMenu('bebidas')" class="cat-btn border border-dark-border px-5 py-2 rounded-full text-sm text-white/50 transition-all duration-300 hover:border-gold/50 hover:text-gold">Bebidas</button>
-      </div>
-
-      <!-- Menu Grid -->
-      <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-        <!-- Items will be rendered by JS -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== HOW IT WORKS ========== -->
-  <section id="como-funciona" class="py-20 md:py-32 border-t border-dark-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 reveal">
-        <p class="text-gold/70 text-sm tracking-[0.3em] uppercase mb-4 font-light">Simple y rápido</p>
-        <h2 class="font-display text-4xl md:text-5xl font-light">Cómo <span class="text-gradient italic">funciona</span></h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-        <!-- Step 1 -->
-        <div class="text-center reveal">
-          <div class="w-20 h-20 mx-auto mb-6 rounded-full border border-gold/30 flex items-center justify-center">
-            <span class="text-gradient text-3xl font-display font-semibold">1</span>
-          </div>
-          <h3 class="font-display text-2xl mb-3">Elegí</h3>
-          <p class="text-white/40 text-sm leading-relaxed max-w-xs mx-auto">Explorá nuestro menú y seleccioná tus rolls, combos y bebidas favoritas.</p>
-        </div>
-
-        <!-- Connector line (desktop) -->
-        <div class="hidden md:block absolute left-1/3 right-1/3 top-1/2 h-px bg-gold/20"></div>
-
-        <!-- Step 2 -->
-        <div class="text-center reveal delay-200">
-          <div class="w-20 h-20 mx-auto mb-6 rounded-full border border-gold/30 flex items-center justify-center">
-            <span class="text-gradient text-3xl font-display font-semibold">2</span>
-          </div>
-          <h3 class="font-display text-2xl mb-3">Pagá</h3>
-          <p class="text-white/40 text-sm leading-relaxed max-w-xs mx-auto">Completá tu pedido de forma segura. Efectivo, transferencia o Mercado Pago.</p>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="text-center reveal delay-400">
-          <div class="w-20 h-20 mx-auto mb-6 rounded-full border border-gold/30 flex items-center justify-center">
-            <span class="text-gradient text-3xl font-display font-semibold">3</span>
-          </div>
-          <h3 class="font-display text-2xl mb-3">Recibí</h3>
-          <p class="text-white/40 text-sm leading-relaxed max-w-xs mx-auto">Te llevamos el pedido fresco a tu puerta en 30 minutos o menos.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== TESTIMONIALS ========== -->
-  <section id="testimonios" class="py-20 md:py-32 bg-gradient-to-b from-dark via-[#0d0d0d] to-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 reveal">
-        <p class="text-gold/70 text-sm tracking-[0.3em] uppercase mb-4 font-light">Lo que dicen</p>
-        <h2 class="font-display text-4xl md:text-5xl font-light">Nuestros <span class="text-gradient italic">clientes</span></h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-
-        <div class="bg-dark-card rounded-2xl p-8 border border-dark-border reveal">
-          <div class="flex gap-1 mb-4">
-            <span class="text-gold">★</span><span class="text-gold">★</span><span class="text-gold">★</span><span class="text-gold">★</span><span class="text-gold">★</span>
-          </div>
-          <p class="text-white/60 text-sm leading-relaxed mb-6">"El mejor sushi que probé. La frescura se nota en cada bocado. El Combo Satoshi es espectacular, lo pedimos todos los viernes."</p>
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-gold font-semibold text-sm">MC</div>
-            <div>
-              <p class="text-sm font-medium">María C.</p>
-              <p class="text-white/30 text-xs">Cliente frecuente</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-dark-card rounded-2xl p-8 border border-dark-border reveal delay-100">
-          <div class="flex gap-1 mb-4">
-            <span class="text-gold">★</span><span class="text-gold">★</span><span class="text-gold">★</span><span class="text-gold">★</span><span class="text-gold">★</span>
-          </div>
-          <p class="text-white/60 text-sm leading-relaxed mb-6">"Rapidísimo y super prolijo. Llegó todo perfecto, bien presentado. Se nota que trabajan con mucho cuidado. 100% recomendable."</p>
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-gold font-semibold text-sm">LR</div>
-            <div>
-              <p class="text-sm font-medium">Lucas R.</p>
-              <p class="text-white/30 text-xs">Desde Google Reviews</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-dark-card rounded-2xl p-8 border border-dark-border reveal delay-200">
-          <div class="flex gap-1 mb-4">
-            <span class="text-gold">★</span><span class="text-gold">★</span><span class="text-gold">★</span><span class="text-gold">★</span><span class="text-gold">★</span>
-          </div>
-          <p class="text-white/60 text-sm leading-relaxed mb-6">"Pedimos el Combo Zen para un cumpleaños y fue un éxito total. La calidad premium se nota. Ya somos clientes fieles."</p>
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-gold font-semibold text-sm">SF</div>
-            <div>
-              <p class="text-sm font-medium">Sofía F.</p>
-              <p class="text-white/30 text-xs">Desde Instagram</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== CONTACT ========== -->
-  <section id="contacto" class="py-20 md:py-32 border-t border-dark-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-
-        <!-- Info -->
-        <div class="reveal">
-          <p class="text-gold/70 text-sm tracking-[0.3em] uppercase mb-4 font-light">Contacto</p>
-          <h2 class="font-display text-4xl md:text-5xl font-light mb-8">Hacé tu <span class="text-gradient italic">pedido</span></h2>
-
-          <div class="space-y-8">
-            <div>
-              <h4 class="text-sm text-white/40 uppercase tracking-wider mb-2">Horarios</h4>
-              <p class="text-white/80">Martes a Domingo</p>
-              <p class="text-white/80">19:00 – 23:30 hs</p>
-            </div>
-
-            <div>
-              <h4 class="text-sm text-white/40 uppercase tracking-wider mb-2">Zona de entrega</h4>
-              <p class="text-white/80">Radio de 5 km desde nuestra cocina</p>
-              <p class="text-white/50 text-sm mt-1">Envío gratis en pedidos mayores a $8.000</p>
-            </div>
-
-            <div>
-              <h4 class="text-sm text-white/40 uppercase tracking-wider mb-2">WhatsApp</h4>
-              <a href="https://wa.me/5491100000000" target="_blank" class="inline-flex items-center gap-2 text-gold hover:text-gold-light transition-colors text-lg">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                +54 9 11 0000-0000
-              </a>
-            </div>
-
-            <div>
-              <h4 class="text-sm text-white/40 uppercase tracking-wider mb-2">Seguinos</h4>
-              <div class="flex gap-4">
-                <a href="#" class="w-10 h-10 rounded-full border border-dark-border flex items-center justify-center text-white/50 hover:text-gold hover:border-gold/50 transition-all duration-300">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                </a>
-                <a href="#" class="w-10 h-10 rounded-full border border-dark-border flex items-center justify-center text-white/50 hover:text-gold hover:border-gold/50 transition-all duration-300">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- CTA Card -->
-        <div class="reveal delay-200">
-          <div class="bg-dark-card rounded-3xl border border-dark-border p-8 md:p-12 text-center">
-            <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gold/10 flex items-center justify-center">
-              <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-            </div>
-            <h3 class="font-display text-2xl md:text-3xl mb-3">¿Tenés hambre?</h3>
-            <p class="text-white/40 text-sm mb-8 max-w-sm mx-auto leading-relaxed">
-              Hacé tu pedido ahora y recibí sushi fresco y artesanal en la comodidad de tu casa.
-            </p>
-            <a href="#menu" class="btn-gold inline-block text-dark font-semibold px-10 py-4 rounded-full text-base mb-4">
-              Ver menú y pedir
-            </a>
-            <p class="text-white/30 text-xs">o escribinos directo por WhatsApp</p>
-            <a href="https://wa.me/5491100000000" target="_blank" class="inline-flex items-center gap-2 text-gold text-sm mt-3 hover:text-gold-light transition-colors">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Abrir WhatsApp
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== FOOTER ========== -->
-  <footer class="py-12 border-t border-dark-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-        <div class="flex items-center gap-2">
-          <span class="text-gold text-lg font-display font-semibold tracking-wider">SATOSHI</span>
-          <span class="text-white/40 text-xs tracking-[0.3em] uppercase font-light">SUSHI</span>
-        </div>
-        <p class="text-white/30 text-xs text-center">&copy; 2026 Satoshi Sushi. Todos los derechos reservados.</p>
-        <div class="flex gap-6">
-          <a href="#" class="text-white/30 hover:text-gold text-xs transition-colors">Términos</a>
-          <a href="#" class="text-white/30 hover:text-gold text-xs transition-colors">Privacidad</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ========== CART PANEL ========== -->
-  <div id="cart-overlay" class="hidden fixed inset-0 bg-black/60 z-50" onclick="toggleCart()"></div>
-  <div id="cart-panel" class="hidden fixed top-0 right-0 bottom-0 w-full sm:w-96 bg-dark-card border-l border-dark-border z-50 overflow-y-auto">
-    <div class="p-6">
-      <div class="flex items-center justify-between mb-8">
-        <h3 class="font-display text-2xl">Tu pedido</h3>
-        <button onclick="toggleCart()" class="p-2 text-white/50 hover:text-white transition-colors">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </button>
-      </div>
-
-      <div id="cart-items" class="space-y-4 mb-8">
-        <!-- Cart items rendered by JS -->
-      </div>
-
-      <div id="cart-empty" class="text-center py-12">
-        <p class="text-white/30 text-sm mb-4">Tu carrito está vacío</p>
-        <button onclick="toggleCart()" class="text-gold text-sm hover:text-gold-light transition-colors">Explorar menú</button>
-      </div>
-
-      <div id="cart-footer" class="hidden border-t border-dark-border pt-6">
-        <div class="flex justify-between items-center mb-6">
-          <span class="text-white/60">Total</span>
-          <span id="cart-total" class="text-2xl font-display text-gradient font-semibold">$0</span>
-        </div>
-        <button onclick="checkout()" class="w-full btn-gold text-dark font-semibold py-4 rounded-full text-base mb-3">
-          Finalizar compra
-        </button>
-        <button onclick="orderWhatsApp()" class="w-full border border-green-500/50 text-green-400 font-semibold py-4 rounded-full text-base hover:bg-green-500/10 transition-all duration-300 flex items-center justify-center gap-2">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Pedir por WhatsApp
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ========== STICKY BOTTOM BAR (Mobile) ========== -->
-  <div id="sticky-bar" class="hidden fixed bottom-0 left-0 right-0 md:hidden z-40 sticky-bottom bg-dark/90 border-t border-dark-border px-4 py-3">
-    <button onclick="toggleCart()" class="w-full btn-gold text-dark font-semibold py-3.5 rounded-full text-base flex items-center justify-center gap-3">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
-      </svg>
-      Ver carrito (<span id="sticky-count">0</span>) — <span id="sticky-total">$0</span>
-    </button>
-  </div>
-
-  <!-- ========== TOAST NOTIFICATION ========== -->
-  <div id="toast" class="hidden fixed top-20 right-4 z-50 bg-dark-card border border-gold/30 rounded-xl px-5 py-3 shadow-xl">
-    <p class="text-sm text-white/80" id="toast-msg">Agregado al carrito</p>
   </div>
 
   <!-- ========== JAVASCRIPT ========== -->
   <script>
-    // =============================================
-    // MENU DATA
-    // =============================================
-    const menuItems = [
-      // Combos
-      { id: 'combo-satoshi', name: 'Combo Satoshi', desc: '30 piezas mixtas: salmón, langostino, philadelphia y veggie roll.', price: 8900, category: 'combos', img: 'https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=400&q=80', badge: 'MÁS PEDIDO' },
-      { id: 'combo-sakura', name: 'Combo Sakura', desc: '20 piezas: salmón roll, california y ebi tempura. Ideal para dos.', price: 6500, category: 'combos', img: 'https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=400&q=80' },
-      { id: 'combo-zen', name: 'Combo Zen', desc: '50 piezas premium con sashimi, nigiri y rolls especiales.', price: 12500, category: 'combos', img: 'https://images.unsplash.com/photo-1553621042-f6e147245754?w=400&q=80', badge: 'NUEVO' },
-      { id: 'combo-fuji', name: 'Combo Fuji', desc: '40 piezas variadas: ideal para compartir en grupo.', price: 10500, category: 'combos', img: 'https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=400&q=80' },
-
-      // Piezas
-      { id: 'salmon-roll', name: 'Salmón Roll x10', desc: 'Roll de salmón fresco con queso crema y palta.', price: 3200, category: 'piezas', img: 'https://images.unsplash.com/photo-1643278647789-19e5a61f7caf?w=400&q=80' },
-      { id: 'ebi-tempura', name: 'Ebi Tempura x10', desc: 'Langostino crocante en tempura con salsa teriyaki.', price: 3500, category: 'piezas', img: 'https://images.unsplash.com/photo-1580822184713-fc5400e7fe10?w=400&q=80' },
-      { id: 'california-roll', name: 'California Roll x10', desc: 'Kanikama, palta, queso y sésamo tostado.', price: 2800, category: 'piezas', img: 'https://images.unsplash.com/photo-1559410545-0bdcd187e0a6?w=400&q=80' },
-      { id: 'nigiri-salmon', name: 'Nigiri Salmón x5', desc: 'Arroz con lámina de salmón fresco. Clásico japonés.', price: 2500, category: 'piezas', img: 'https://images.unsplash.com/photo-1583623025817-d180a2221d0a?w=400&q=80' },
-      { id: 'veggie-roll', name: 'Veggie Roll x10', desc: 'Roll vegano: palta, pepino, zanahoria y mango.', price: 2600, category: 'piezas', img: 'https://images.unsplash.com/photo-1607301406259-dfb186e15de8?w=400&q=80' },
-      { id: 'philadelphia', name: 'Philadelphia x10', desc: 'Salmón ahumado, queso philadelphia y ciboulette.', price: 3400, category: 'piezas', img: 'https://images.unsplash.com/photo-1562802378-063ec186a863?w=400&q=80' },
-
-      // Entradas
-      { id: 'edamame', name: 'Edamame', desc: 'Vainas de soja con sal marina y un toque de sésamo.', price: 1800, category: 'entradas', img: 'https://images.unsplash.com/photo-1564834744159-ff0ea41ba4b9?w=400&q=80' },
-      { id: 'gyozas', name: 'Gyozas x6', desc: 'Empanaditas japonesas rellenas de cerdo y verduras.', price: 2200, category: 'entradas', img: 'https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?w=400&q=80' },
-      { id: 'sunomono', name: 'Sunomono', desc: 'Ensalada fresca de pepino con vinagreta japonesa.', price: 1500, category: 'entradas', img: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80' },
-
-      // Extras
-      { id: 'salsa-soja', name: 'Salsa de Soja', desc: 'Salsa de soja premium. Sachet individual.', price: 200, category: 'extras', img: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?w=400&q=80' },
-      { id: 'jengibre', name: 'Jengibre Encurtido', desc: 'Gari: jengibre en láminas encurtido. Porción.', price: 300, category: 'extras', img: 'https://images.unsplash.com/photo-1615361200141-f45040f367be?w=400&q=80' },
-      { id: 'wasabi', name: 'Wasabi Extra', desc: 'Porción extra de wasabi fresco.', price: 300, category: 'extras', img: 'https://images.unsplash.com/photo-1590301157890-4810ed352733?w=400&q=80' },
-
-      // Bebidas
-      { id: 'agua', name: 'Agua Mineral', desc: 'Agua mineral sin gas 500ml.', price: 800, category: 'bebidas', img: 'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=400&q=80' },
-      { id: 'cerveza', name: 'Cerveza Asahi', desc: 'Cerveza japonesa importada 330ml.', price: 1800, category: 'bebidas', img: 'https://images.unsplash.com/photo-1608270586620-248524c67de9?w=400&q=80' },
-      { id: 'te-verde', name: 'Té Verde', desc: 'Té verde japonés frío o caliente.', price: 900, category: 'bebidas', img: 'https://images.unsplash.com/photo-1556881286-fc6915169721?w=400&q=80' },
-      { id: 'sake', name: 'Sake', desc: 'Sake premium servido frío. 180ml.', price: 2500, category: 'bebidas', img: 'https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=400&q=80' },
-    ];
-
-    // =============================================
-    // CART STATE
-    // =============================================
-    let cart = [];
-
-    // =============================================
-    // RENDER MENU
-    // =============================================
-    function renderMenu(filter = 'all') {
-      const grid = document.getElementById('menu-grid');
-      const items = filter === 'all' ? menuItems : menuItems.filter(i => i.category === filter);
-
-      grid.innerHTML = items.map(item => `
-        <div class="menu-card bg-dark-card rounded-2xl overflow-hidden border border-dark-border group" data-category="${item.category}">
-          <div class="relative overflow-hidden aspect-square">
-            <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy">
-            ${item.badge ? `<div class="absolute top-3 left-3 bg-gold/90 text-dark text-[10px] font-bold px-2.5 py-0.5 rounded-full tracking-wide">${item.badge}</div>` : ''}
-          </div>
-          <div class="p-5">
-            <div class="flex justify-between items-start mb-1.5">
-              <h4 class="font-display text-base font-medium leading-tight">${item.name}</h4>
-              <span class="text-gold font-semibold text-sm ml-2 whitespace-nowrap">$${item.price.toLocaleString('es-AR')}</span>
-            </div>
-            <p class="text-white/35 text-xs mb-4 leading-relaxed">${item.desc}</p>
-            <button onclick="addToCart('${item.id}', '${item.name}', ${item.price})" class="w-full btn-gold text-dark font-semibold py-2.5 rounded-full text-xs">
-              Agregar al carrito
-            </button>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    // =============================================
-    // FILTER MENU
-    // =============================================
-    function filterMenu(cat) {
-      document.querySelectorAll('.cat-btn').forEach(btn => {
-        btn.classList.remove('active', 'text-gold', 'border-gold');
-        btn.classList.add('text-white/50');
-      });
-      event.target.classList.add('active');
-      event.target.classList.remove('text-white/50');
-      renderMenu(cat);
-    }
-
-    // =============================================
-    // CART FUNCTIONS
-    // =============================================
-    function addToCart(id, name, price) {
-      const existing = cart.find(i => i.id === id);
-      if (existing) {
-        existing.qty += 1;
-      } else {
-        cart.push({ id, name, price, qty: 1 });
-      }
-      updateCartUI();
-      showToast(`${name} agregado`);
-    }
-
-    function removeFromCart(id) {
-      cart = cart.filter(i => i.id !== id);
-      updateCartUI();
-    }
-
-    function updateQty(id, delta) {
-      const item = cart.find(i => i.id === id);
-      if (!item) return;
-      item.qty += delta;
-      if (item.qty <= 0) {
-        removeFromCart(id);
-        return;
-      }
-      updateCartUI();
-    }
-
-    function getCartTotal() {
-      return cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-    }
-
-    function getCartCount() {
-      return cart.reduce((sum, item) => sum + item.qty, 0);
-    }
-
-    function updateCartUI() {
-      const count = getCartCount();
-      const total = getCartTotal();
-
-      // Header badge
-      const badge = document.getElementById('cart-count');
-      if (count > 0) {
-        badge.classList.remove('hidden');
-        badge.textContent = count;
-      } else {
-        badge.classList.add('hidden');
-      }
-
-      // Cart items
-      const itemsEl = document.getElementById('cart-items');
-      const emptyEl = document.getElementById('cart-empty');
-      const footerEl = document.getElementById('cart-footer');
-
-      if (cart.length === 0) {
-        itemsEl.innerHTML = '';
-        emptyEl.classList.remove('hidden');
-        footerEl.classList.add('hidden');
-      } else {
-        emptyEl.classList.add('hidden');
-        footerEl.classList.remove('hidden');
-
-        itemsEl.innerHTML = cart.map(item => `
-          <div class="flex items-center gap-4 bg-dark/50 rounded-xl p-4 border border-dark-border">
-            <div class="flex-1 min-w-0">
-              <p class="text-sm font-medium truncate">${item.name}</p>
-              <p class="text-gold text-sm">$${(item.price * item.qty).toLocaleString('es-AR')}</p>
-            </div>
-            <div class="flex items-center gap-2">
-              <button onclick="updateQty('${item.id}', -1)" class="w-8 h-8 rounded-full border border-dark-border text-white/50 hover:text-white hover:border-white/30 transition-all text-sm flex items-center justify-center">−</button>
-              <span class="text-sm w-6 text-center">${item.qty}</span>
-              <button onclick="updateQty('${item.id}', 1)" class="w-8 h-8 rounded-full border border-dark-border text-white/50 hover:text-white hover:border-white/30 transition-all text-sm flex items-center justify-center">+</button>
-            </div>
-            <button onclick="removeFromCart('${item.id}')" class="text-white/20 hover:text-red-400 transition-colors">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
-            </button>
-          </div>
-        `).join('');
-      }
-
-      // Total
-      document.getElementById('cart-total').textContent = `$${total.toLocaleString('es-AR')}`;
-
-      // Sticky bar
-      const stickyBar = document.getElementById('sticky-bar');
-      if (count > 0) {
-        stickyBar.classList.remove('hidden');
-        document.getElementById('sticky-count').textContent = count;
-        document.getElementById('sticky-total').textContent = `$${total.toLocaleString('es-AR')}`;
-      } else {
-        stickyBar.classList.add('hidden');
-      }
-    }
-
-    // =============================================
-    // CART PANEL TOGGLE
-    // =============================================
-    function toggleCart() {
-      const overlay = document.getElementById('cart-overlay');
-      const panel = document.getElementById('cart-panel');
-
-      if (panel.classList.contains('hidden')) {
-        overlay.classList.remove('hidden');
-        panel.classList.remove('hidden');
-        panel.classList.remove('closing');
-        panel.classList.add('cart-panel');
-        document.body.style.overflow = 'hidden';
-      } else {
-        panel.classList.add('closing');
-        setTimeout(() => {
-          overlay.classList.add('hidden');
-          panel.classList.add('hidden');
-          panel.classList.remove('closing');
-          document.body.style.overflow = '';
-        }, 280);
-      }
-    }
-
-    // =============================================
-    // CHECKOUT
-    // =============================================
-    function checkout() {
-      if (cart.length === 0) return;
-      // Placeholder for Mercado Pago / backend integration
-      alert('¡Gracias por tu pedido! Integración con Mercado Pago próximamente.');
-    }
-
-    // =============================================
-    // WHATSAPP ORDER
-    // =============================================
-    function orderWhatsApp() {
-      if (cart.length === 0) return;
-      const total = getCartTotal();
-      let msg = '¡Hola! Quiero hacer un pedido:\n\n';
-      cart.forEach(item => {
-        msg += `• ${item.name} x${item.qty} — $${(item.price * item.qty).toLocaleString('es-AR')}\n`;
-      });
-      msg += `\n*Total: $${total.toLocaleString('es-AR')}*\n\n¡Gracias!`;
-      window.open(`https://wa.me/5491100000000?text=${encodeURIComponent(msg)}`, '_blank');
-    }
-
-    // =============================================
-    // TOAST
-    // =============================================
-    function showToast(message) {
-      const toast = document.getElementById('toast');
-      document.getElementById('toast-msg').textContent = message;
-      toast.classList.remove('hidden', 'hiding');
-      toast.classList.add('toast');
-      setTimeout(() => {
-        toast.classList.add('hiding');
-        setTimeout(() => toast.classList.add('hidden'), 300);
-      }, 2000);
-    }
-
-    // =============================================
-    // MOBILE NAV
-    // =============================================
+    // Mobile Nav Toggle
     function toggleMobileNav() {
       const nav = document.getElementById('mobile-nav');
       nav.classList.toggle('hidden');
       document.body.style.overflow = nav.classList.contains('hidden') ? '' : 'hidden';
     }
 
-    // =============================================
-    // HEADER SCROLL EFFECT
-    // =============================================
-    let lastScroll = 0;
+    // Header Scroll Effect
     window.addEventListener('scroll', () => {
       const header = document.getElementById('header');
       const scroll = window.scrollY;
-
-      if (scroll > 50) {
-        header.style.background = 'rgba(10,10,10,0.95)';
-        header.style.backdropFilter = 'blur(20px)';
-        header.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
+      if (scroll > 60) {
+        header.style.background = 'rgba(6,6,6,0.92)';
+        header.style.backdropFilter = 'blur(24px)';
+        header.style.borderBottom = '1px solid rgba(255,255,255,0.04)';
       } else {
         header.style.background = 'transparent';
         header.style.backdropFilter = 'none';
         header.style.borderBottom = 'none';
       }
-      lastScroll = scroll;
     });
-
-    // =============================================
-    // REVEAL ON SCROLL (Intersection Observer)
-    // =============================================
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // =============================================
-    // INIT
-    // =============================================
-    renderMenu();
   </script>
 
 </body>
