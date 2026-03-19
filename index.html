@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SATORI SUSHI — Premium Omakase</title>
+  <title>SATORI SUSHI — Sushi Premium Artesanal | Pedí Online</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -326,10 +326,10 @@
 
         <!-- Desktop Nav -->
         <nav class="hidden lg:flex items-center gap-10">
-          <a href="#" class="nav-link text-[13px] text-white/50 hover:text-gold transition-colors duration-300 tracking-widest uppercase font-light">Menu</a>
+          <a href="#" class="nav-link text-[13px] text-white/50 hover:text-gold transition-colors duration-300 tracking-widest uppercase font-light">Carta</a>
           <a href="#" class="nav-link text-[13px] text-white/50 hover:text-gold transition-colors duration-300 tracking-widest uppercase font-light">Omakase</a>
-          <a href="#" class="nav-link text-[13px] text-white/50 hover:text-gold transition-colors duration-300 tracking-widest uppercase font-light">About</a>
-          <a href="#" class="nav-link text-[13px] text-white/50 hover:text-gold transition-colors duration-300 tracking-widest uppercase font-light">Reserve</a>
+          <a href="#" class="nav-link text-[13px] text-white/50 hover:text-gold transition-colors duration-300 tracking-widest uppercase font-light">Nosotros</a>
+          <a href="#" class="nav-link text-[13px] text-white/50 hover:text-gold transition-colors duration-300 tracking-widest uppercase font-light">Reservar</a>
         </nav>
 
         <!-- Actions -->
@@ -339,7 +339,7 @@
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>
             </svg>
-            Reserve
+            Reservar
           </a>
 
           <!-- Mobile Menu Toggle -->
@@ -355,12 +355,12 @@
     <!-- Mobile Nav Overlay -->
     <div id="mobile-nav" class="hidden mobile-nav fixed inset-0 top-20 bg-dark/98 lg:hidden z-40">
       <nav class="flex flex-col items-center justify-center gap-10 h-full">
-        <a href="#" onclick="toggleMobileNav()" class="text-3xl font-display text-white/70 hover:text-gold transition-colors tracking-wider">Menu</a>
+        <a href="#" onclick="toggleMobileNav()" class="text-3xl font-display text-white/70 hover:text-gold transition-colors tracking-wider">Carta</a>
         <a href="#" onclick="toggleMobileNav()" class="text-3xl font-display text-white/70 hover:text-gold transition-colors tracking-wider">Omakase</a>
-        <a href="#" onclick="toggleMobileNav()" class="text-3xl font-display text-white/70 hover:text-gold transition-colors tracking-wider">About</a>
-        <a href="#" onclick="toggleMobileNav()" class="text-3xl font-display text-white/70 hover:text-gold transition-colors tracking-wider">Reserve</a>
+        <a href="#" onclick="toggleMobileNav()" class="text-3xl font-display text-white/70 hover:text-gold transition-colors tracking-wider">Nosotros</a>
+        <a href="#" onclick="toggleMobileNav()" class="text-3xl font-display text-white/70 hover:text-gold transition-colors tracking-wider">Reservar</a>
         <div class="gold-line mx-auto mt-2 mb-2"></div>
-        <a href="#" onclick="toggleMobileNav()" class="btn-gold text-dark font-semibold px-10 py-4 rounded-full tracking-wider uppercase text-sm">Book a Table</a>
+        <a href="#" onclick="toggleMobileNav()" class="btn-gold text-dark font-semibold px-10 py-4 rounded-full tracking-wider uppercase text-sm">Reservá tu mesa</a>
       </nav>
     </div>
   </header>
@@ -372,7 +372,7 @@
     <div class="absolute inset-0 animate-scale-in">
       <img
         src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1920&q=80"
-        alt="Premium sushi platter with fresh salmon nigiri and maki rolls"
+        alt="Bandeja de sushi premium con nigiri de salmón fresco y maki rolls"
         class="w-full h-full object-cover"
         loading="eager"
       >
@@ -400,7 +400,7 @@
             <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"/>
           </defs>
           <text fill="rgba(201,169,110,0.4)" font-size="8.5" font-family="Inter" letter-spacing="5" font-weight="300">
-            <textPath href="#circlePath">PREMIUM SUSHI * OMAKASE * EST. 2020 * </textPath>
+            <textPath href="#circlePath">SUSHI PREMIUM * OMAKASE * EST. 2020 * </textPath>
           </text>
         </svg>
         <div class="absolute inset-0 flex items-center justify-center">
@@ -417,33 +417,32 @@
         <div class="animate-fade-up">
           <div class="flex items-center gap-4 mb-8">
             <div class="gold-line"></div>
-            <p class="text-gold/70 text-[11px] sm:text-xs tracking-[0.4em] uppercase font-light">Tokyo-Inspired Artisan Sushi</p>
+            <p class="text-gold/70 text-[11px] sm:text-xs tracking-[0.4em] uppercase font-light">Sushi artesanal de autor</p>
           </div>
         </div>
 
         <!-- Main Headline -->
         <h1 class="animate-fade-up delay-200 mb-8">
           <span class="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[108px] font-display font-light leading-[0.9] tracking-tight">
-            The art of
+            Donde el
           </span>
           <span class="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[108px] font-display leading-[0.9] tracking-tight mt-1">
-            <em class="text-gradient font-medium">sushi,</em>
+            <em class="text-gradient font-medium">sushi</em>
           </span>
           <span class="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[108px] font-display font-light leading-[0.9] tracking-tight mt-1">
-            perfected.
+            es arte.
           </span>
         </h1>
 
         <!-- Subtext -->
         <p class="animate-fade-up delay-400 text-white/40 text-base md:text-lg font-light max-w-lg mb-12 leading-[1.8]">
-          Every piece tells a story of precision, passion, and the
-          finest ingredients flown in from Tsukiji Market.
+          Pescado fresco del día, técnica japonesa y obsesión por cada detalle. Pedí ahora y recibilo en tu puerta.
         </p>
 
         <!-- CTA Buttons -->
         <div class="animate-fade-up delay-500 flex flex-col sm:flex-row gap-4 mb-20">
           <a href="#" class="group btn-gold text-dark text-center font-semibold px-10 py-4.5 rounded-full text-sm tracking-wider uppercase inline-flex items-center justify-center gap-3">
-            Explore the Menu
+            Ver carta completa
             <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
             </svg>
@@ -453,25 +452,25 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
               <path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z"/>
             </svg>
-            Watch Our Story
+            Conocé nuestra historia
           </a>
         </div>
 
         <!-- Stats Row -->
         <div class="animate-fade-up delay-700 flex items-center gap-6 sm:gap-10">
           <div class="group cursor-default">
-            <p class="text-3xl sm:text-4xl font-display text-gradient font-semibold leading-none">15+</p>
-            <p class="text-white/30 text-[10px] sm:text-xs tracking-wider mt-1.5 uppercase font-light">Years of Craft</p>
+            <p class="text-3xl sm:text-4xl font-display text-gradient font-semibold leading-none">100%</p>
+            <p class="text-white/30 text-[10px] sm:text-xs tracking-wider mt-1.5 uppercase font-light">Ingredientes frescos</p>
           </div>
           <div class="stat-divider"></div>
           <div class="group cursor-default">
-            <p class="text-3xl sm:text-4xl font-display text-gradient font-semibold leading-none">4.9</p>
-            <p class="text-white/30 text-[10px] sm:text-xs tracking-wider mt-1.5 uppercase font-light">Guest Rating</p>
+            <p class="text-3xl sm:text-4xl font-display text-gradient font-semibold leading-none">4.9★</p>
+            <p class="text-white/30 text-[10px] sm:text-xs tracking-wider mt-1.5 uppercase font-light">+2.000 reseñas</p>
           </div>
           <div class="stat-divider"></div>
           <div class="group cursor-default">
-            <p class="text-3xl sm:text-4xl font-display text-gradient font-semibold leading-none">Michelin</p>
-            <p class="text-white/30 text-[10px] sm:text-xs tracking-wider mt-1.5 uppercase font-light">Recommended</p>
+            <p class="text-3xl sm:text-4xl font-display text-gradient font-semibold leading-none">30 min</p>
+            <p class="text-white/30 text-[10px] sm:text-xs tracking-wider mt-1.5 uppercase font-light">En tu puerta</p>
           </div>
         </div>
       </div>
@@ -479,7 +478,7 @@
 
     <!-- Scroll Indicator -->
     <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-fade-in delay-1200 flex flex-col items-center">
-      <p class="text-white/20 text-[9px] tracking-[0.4em] uppercase mb-3 font-light">Scroll</p>
+      <p class="text-white/20 text-[9px] tracking-[0.4em] uppercase mb-3 font-light">Descubrí</p>
       <div class="w-px h-12 bg-gradient-to-b from-gold/40 to-transparent"></div>
     </div>
 
@@ -497,7 +496,7 @@
 
     <!-- Right side floating badge -->
     <div class="absolute right-5 sm:right-8 lg:right-12 bottom-10 z-10 hidden md:block animate-fade-in delay-1000">
-      <p class="text-white/15 text-[10px] tracking-[0.3em] uppercase font-light text-right">Open Daily<br><span class="text-gold/40">6PM — 11PM</span></p>
+      <p class="text-white/15 text-[10px] tracking-[0.3em] uppercase font-light text-right">Abierto todos los días<br><span class="text-gold/40">19:00 — 23:30</span></p>
     </div>
   </section>
 
@@ -561,15 +560,15 @@
       <div class="reveal mb-20">
         <div class="flex items-center gap-4 mb-6">
           <div class="w-12 h-px bg-gradient-to-r from-gold to-transparent"></div>
-          <p class="text-gold/60 text-[11px] tracking-[0.4em] uppercase font-light">Chef's Selection</p>
+          <p class="text-gold/60 text-[11px] tracking-[0.4em] uppercase font-light">Los más elegidos</p>
         </div>
         <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
           <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-light leading-[0.95]">
-            Featured<br>
-            <em class="text-gradient font-medium">Combos</em>
+            Combos<br>
+            <em class="text-gradient font-medium">irresistibles</em>
           </h2>
           <p class="text-white/35 text-sm font-light max-w-md leading-[1.9] lg:text-right">
-            Curated selections by our head chef. Each combo is a journey through the finest flavors of Japan, designed for sharing.
+            Selecciones curadas por nuestro chef ejecutivo. Cada combo es un viaje por los mejores sabores de Japón, pensado para compartir.
           </p>
         </div>
       </div>
@@ -583,7 +582,7 @@
             <div class="relative h-72 md:h-full md:min-h-[560px] overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=800&q=80"
-                alt="Satori Signature Combo — 30 pieces of premium assorted sushi"
+                alt="Combo Satori Signature — 30 piezas de sushi premium variado"
                 class="w-full h-full object-cover img-zoom"
                 loading="lazy"
               >
@@ -593,7 +592,7 @@
               <div class="absolute top-5 left-5 z-10">
                 <span class="inline-flex items-center gap-1.5 bg-gold/90 text-dark text-[10px] font-bold px-3.5 py-1.5 rounded-full tracking-wider uppercase">
                   <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                  Most Popular
+                  Más pedido
                 </span>
               </div>
 
@@ -606,14 +605,14 @@
                   </div>
                 </div>
                 <p class="text-white/45 text-sm font-light leading-relaxed mb-6 max-w-sm">
-                  30 pcs — Our masterpiece. A curated selection of salmon, tuna, yellowtail nigiri, dragon roll, and chef's special creations.
+                  30 piezas — Nuestra obra maestra. Nigiri de salmón, atún y pez limón, dragon roll y creaciones especiales del chef.
                 </p>
                 <div class="flex items-center gap-3">
                   <button onclick="addToCart('satori-signature', 'Satori Signature', 89)" class="flex-1 btn-gold text-dark font-semibold py-3.5 rounded-full text-sm tracking-wide inline-flex items-center justify-center gap-2">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-                    Add to Cart
+                    Agregar al pedido
                   </button>
-                  <span class="text-white/25 text-xs font-light">30 pieces</span>
+                  <span class="text-white/25 text-xs font-light">30 piezas</span>
                 </div>
               </div>
             </div>
@@ -628,7 +627,7 @@
                 <div class="relative w-full sm:w-2/5 h-56 sm:h-auto overflow-hidden">
                   <img
                     src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=600&q=80"
-                    alt="Sakura Set — 20 pieces of salmon and shrimp tempura rolls"
+                    alt="Sakura Set — 20 piezas de salmón y langostino tempura"
                     class="w-full h-full object-cover img-zoom"
                     loading="lazy"
                   >
@@ -642,15 +641,15 @@
                       </div>
                     </div>
                     <p class="text-white/40 text-sm font-light leading-relaxed mb-5">
-                      20 pcs — Salmon lovers' dream. Pink salmon roll, sake nigiri, shrimp tempura, and spicy tuna bites.
+                      20 piezas — Para los que aman el salmón. Salmon roll, sake nigiri, ebi tempura crocante y spicy tuna bites.
                     </p>
                   </div>
                   <div class="flex items-center gap-3">
                     <button onclick="addToCart('sakura-set', 'Sakura Set', 65)" class="flex-1 btn-gold text-dark font-semibold py-3 rounded-full text-sm tracking-wide inline-flex items-center justify-center gap-2">
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-                      Add to Cart
+                      Agregar al pedido
                     </button>
-                    <span class="text-white/25 text-xs font-light">20 pcs</span>
+                    <span class="text-white/25 text-xs font-light">20 piezas</span>
                   </div>
                 </div>
               </div>
@@ -666,12 +665,12 @@
                 <div class="relative w-full sm:w-2/5 h-56 sm:h-auto overflow-hidden">
                   <img
                     src="https://images.unsplash.com/photo-1553621042-f6e147245754?w=600&q=80"
-                    alt="Zen Platter — 50 premium pieces with sashimi and specialty rolls"
+                    alt="Zen Platter — 50 piezas premium con sashimi y rolls especiales"
                     class="w-full h-full object-cover img-zoom"
                     loading="lazy"
                   >
                   <div class="absolute top-4 left-4">
-                    <span class="inline-flex items-center bg-white/10 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1 rounded-full tracking-wider uppercase border border-white/10">New</span>
+                    <span class="inline-flex items-center bg-white/10 backdrop-blur-sm text-white text-[10px] font-bold px-3 py-1 rounded-full tracking-wider uppercase border border-white/10">Nuevo</span>
                   </div>
                 </div>
                 <div class="flex-1 p-7 flex flex-col justify-between">
@@ -683,15 +682,15 @@
                       </div>
                     </div>
                     <p class="text-white/40 text-sm font-light leading-relaxed mb-5">
-                      50 pcs — The ultimate feast. Premium sashimi trio, assorted nigiri, dragon & rainbow rolls, and edamame.
+                      50 piezas — El festín definitivo. Trío de sashimi premium, nigiri variado, dragon & rainbow rolls y edamame.
                     </p>
                   </div>
                   <div class="flex items-center gap-3">
                     <button onclick="addToCart('zen-platter', 'Zen Platter', 125)" class="flex-1 btn-gold text-dark font-semibold py-3 rounded-full text-sm tracking-wide inline-flex items-center justify-center gap-2">
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-                      Add to Cart
+                      Agregar al pedido
                     </button>
-                    <span class="text-white/25 text-xs font-light">50 pcs</span>
+                    <span class="text-white/25 text-xs font-light">50 piezas</span>
                   </div>
                 </div>
               </div>
@@ -709,7 +708,7 @@
               <div class="relative w-full lg:w-1/2 h-64 lg:h-auto lg:min-h-[320px] overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=900&q=80"
-                  alt="Omakase Experience — chef's choice multi-course sushi tasting"
+                  alt="Experiencia Omakase — degustación del chef con piezas de autor"
                   class="w-full h-full object-cover img-zoom"
                   loading="lazy"
                 >
@@ -725,36 +724,36 @@
 
                 <div class="flex items-center gap-3 mb-5">
                   <div class="w-8 h-px bg-gold/40"></div>
-                  <span class="text-gold/50 text-[10px] tracking-[0.4em] uppercase font-light">Premium Experience</span>
+                  <span class="text-gold/50 text-[10px] tracking-[0.4em] uppercase font-light">Experiencia premium</span>
                 </div>
                 <div class="flex items-start justify-between gap-4 mb-4">
-                  <h3 class="font-display text-2xl md:text-3xl lg:text-4xl font-medium leading-tight">Omakase<br class="hidden sm:block"> Experience</h3>
+                  <h3 class="font-display text-2xl md:text-3xl lg:text-4xl font-medium leading-tight">Experiencia<br class="hidden sm:block"> Omakase</h3>
                   <div class="price-tag px-4 py-2 rounded-full shrink-0">
                     <span class="text-gradient font-semibold text-lg">$150</span>
                   </div>
                 </div>
                 <p class="text-white/40 text-sm font-light leading-[1.9] mb-4 max-w-md">
-                  Trust the chef. A multi-course journey through 40 handcrafted pieces featuring seasonal fish, A5 wagyu sushi, uni, and otoro — paired with premium sake.
+                  Dejate sorprender por el chef. 40 piezas artesanales con pescados de estación, sushi de wagyu A5, uni y otoro — maridado con sake premium.
                 </p>
                 <div class="flex items-center gap-4 mb-7">
                   <div class="flex items-center gap-1.5 text-white/25 text-xs">
                     <svg class="w-3.5 h-3.5 text-gold/50" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    Serves 2–3
+                    Para 2–3 personas
                   </div>
                   <div class="w-1 h-1 rounded-full bg-white/10"></div>
                   <div class="flex items-center gap-1.5 text-white/25 text-xs">
                     <svg class="w-3.5 h-3.5 text-gold/50" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    40 pieces
+                    40 piezas
                   </div>
                   <div class="w-1 h-1 rounded-full bg-white/10"></div>
-                  <span class="text-white/25 text-xs">Sake included</span>
+                  <span class="text-white/25 text-xs">Sake incluido</span>
                 </div>
                 <div class="flex items-center gap-3">
-                  <button onclick="addToCart('omakase-experience', 'Omakase Experience', 150)" class="btn-gold text-dark font-semibold py-3.5 px-10 rounded-full text-sm tracking-wide inline-flex items-center justify-center gap-2">
+                  <button onclick="addToCart('omakase-experience', 'Experiencia Omakase', 150)" class="btn-gold text-dark font-semibold py-3.5 px-10 rounded-full text-sm tracking-wide inline-flex items-center justify-center gap-2">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-                    Add to Cart
+                    Agregar al pedido
                   </button>
-                  <span class="text-white/20 text-xs font-light hidden sm:inline">Free delivery over $100</span>
+                  <span class="text-white/20 text-xs font-light hidden sm:inline">Envío gratis a partir de $100</span>
                 </div>
               </div>
             </div>
@@ -775,7 +774,7 @@
         <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
       </div>
       <div>
-        <p id="toast-name" class="text-sm font-medium text-white/90">Item added</p>
+        <p id="toast-name" class="text-sm font-medium text-white/90">Agregado al pedido</p>
         <p id="toast-price" class="text-xs text-gold/60 mt-0.5">$0</p>
       </div>
     </div>
@@ -804,7 +803,7 @@
     let toastTimeout;
     function showCartToast(name, price) {
       const toast = document.getElementById('cart-toast');
-      document.getElementById('toast-name').textContent = name + ' added';
+      document.getElementById('toast-name').textContent = name + ' agregado';
       document.getElementById('toast-price').textContent = '$' + price;
       toast.classList.remove('hidden');
       toast.style.animation = 'fadeUp 0.4s cubic-bezier(0.22,1,0.36,1) forwards';
